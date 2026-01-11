@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Tools</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 16px;
+        min-width: 320px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin-top: 12px;
+      }
+      input,
+      textarea,
+      button {
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 6px;
+      }
+      textarea {
+        min-height: 80px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+      }
+      .row button {
+        flex: 1;
+      }
+      .profiles {
+        margin-top: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 8px;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+      .profile-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 6px 0;
+        border-bottom: 1px solid #eee;
+      }
+      .profile-item:last-child {
+        border-bottom: none;
+      }
+      .profile-meta {
+        font-size: 12px;
+        color: #555;
+      }
+      .status {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #0b5;
+      }
+      .error {
+        color: #c00;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Profile Storage</h1>
+
+    <label for="profile-name">Profile name</label>
+    <input id="profile-name" type="text" placeholder="Candidate name" />
+
+    <label for="profile-source">Source</label>
+    <input id="profile-source" type="text" placeholder="LinkedIn, resume, etc." />
+
+    <label for="profile-notes">Notes</label>
+    <input id="profile-notes" type="text" placeholder="Quick notes" />
+
+    <label for="profile-text">Profile text</label>
+    <textarea id="profile-text" placeholder="Paste or capture profile text"></textarea>
+
+    <div class="row">
+      <button id="capture-text" type="button">Use page text</button>
+      <button id="save-profile" type="button">Save profile</button>
+    </div>
+
+    <div class="status" id="status-message"></div>
+
+    <label for="profile-search">Search profiles</label>
+    <input id="profile-search" type="search" placeholder="Filter by name, source, notes" />
+
+    <label>Compare against selected profile</label>
+    <div class="profiles" id="profile-list"></div>
+
+    <script src="profileStore.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
